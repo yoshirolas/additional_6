@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+      var expression = "20!";
+      var arrExpression = expression.split('*');
+      alert(arrExpression);
+      var result = 1;
+      var zeros = 0;
+      for (var i = 0; i < arrExpression.length; i++) {
+        var str = arrExpression[i];
+        //alert(str);
+        var factorialDobleIndex = str.indexOf("!!");
+
+      	var factorialIndex = str.indexOf("!");
+      	var number = +arrExpression[i].slice(0, factorialIndex);
+        //alert(number);
+        var factorial = 1;
+        var count = 0;
+        for (var j = 1; j < number; j++) {
+          if ((j + 1) % 5 === 0 ) {
+            count = count + 1;
+          }
+          factorial = "" + (factorial * (j + 1));
+        }
+        result = "" + (result * factorial);
+        zeros = zeros + count;
+      }
+      alert(result);
+      alert(zeros);
+      //var i = 0;
+      //do {
+      //  zeros = zeros + 1;
+      //  //alert(zeros);
+      //  i = i + 1;
+      //}
+      //while (result.charAt(result.length - i) == '0');
+      //alert(zeros - 1);
+
+  </script>
+</body>
+
+</html>
