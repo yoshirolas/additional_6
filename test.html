@@ -3,7 +3,7 @@
 
 <body>
   <script>
-      var expression = "20!";
+      var expression = "10!!*20!!*30!!";
       var arrExpression = expression.split('*');
       alert(arrExpression);
       var result = 1;
@@ -12,17 +12,42 @@
         var str = arrExpression[i];
         //alert(str);
         var factorialDobleIndex = str.indexOf("!!");
-
-      	var factorialIndex = str.indexOf("!");
-      	var number = +arrExpression[i].slice(0, factorialIndex);
-        //alert(number);
-        var factorial = 1;
-        var count = 0;
-        for (var j = 1; j < number; j++) {
-          if ((j + 1) % 5 === 0 ) {
-            count = count + 1;
+        if (factorialDobleIndex == -1 ) {
+          var factorialIndex = str.indexOf("!");
+          var number = +arrExpression[i].slice(0, factorialIndex);
+          //alert(number);
+          var factorial = 1;
+          var count = 0;
+          for (var j = 1; j < number; j++) {
+           if ((j + 1) % 5 === 0 ) {
+              count = count + 1;
+            }
+            factorial = "" + (factorial * (j + 1));
           }
-          factorial = "" + (factorial * (j + 1));
+        }
+        else {
+          var number = +arrExpression[i].slice(0, factorialDobleIndex);
+          //alert(number);
+          var factorial = 1;
+          var count = 0; 
+          if (number % 2 === 0) {
+            for (var j = 2; j < number; ) {
+              if ((j + 2) % 10 === 0 ) {
+                count = count + 1;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //alert(j);
+              }
+            factorial = "" + (factorial * (j + 2));
+            j = j + 2;
+            }
+          }
+          for (var j = 1; j < number; ) {
+            if ((j + 2) % 10 === 0 ) {
+              count = count + 1;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+              //alert(j);
+            }
+          factorial = "" + (factorial * (j + 2));
+          j = j + 2;
+          }
         }
         result = "" + (result * factorial);
         zeros = zeros + count;
